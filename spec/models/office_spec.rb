@@ -1,13 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Office, :type => :model do 
-    it "must have a location" do  
-        office = Office.new(name: nil)
-        expect(office).to_not be_valid
+
+    describe 'validations' do 
+        it { should validate_presence_of(:location) }
     end 
-
-
+    
     describe 'associations' do 
-        it { should has_many(:patients)}
+        it { should have_many(:patients)}
+        it { should have_many(:users).through(:patients) }
     end 
+
 end 
