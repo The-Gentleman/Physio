@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   get 'login' => "sessions#new"
   post 'login' => "sessions#create"
   delete 'logout' => "sessions#destroy"
+  get '/auth/:provider/callback' => "sessions#google"
+
   get 'signup' => "users#new"
   post 'signup' => "users#create"
 
-
-  get '/auth/:provider/callback' => "sessions#google"
   resources :patients
   resources :users
 end

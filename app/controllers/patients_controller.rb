@@ -1,14 +1,17 @@
 class PatientsController < ApplicationController
 
     def new #needs to be nested
-        @patient = Patient.new
     end 
     
     def create #needs to be nested
     end 
     
     def index #needs to be nested
-        @patients = current_user.patients
+        if params[:office_id] && office = Office.find_by_id(params[:office_id])
+            @patients = office.patients
+        else 
+            @patients = current_user.patients
+        end 
     end 
     
     def show 
