@@ -1,0 +1,6 @@
+<h1> Here are all the offices: </h1>
+
+<ul>
+<% @offices.all.each do |office| %>
+    <li><%= office.location %></li>
+<% end %>

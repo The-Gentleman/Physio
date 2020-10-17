@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   delete 'logout' => "sessions#destroy"
   get 'signup' => "users#new"
   post 'signup' => "users#create"
+
+  get '/auth/:provider/callback' => "sessions#google"
   resources :exercises
   resources :patients
   resources :offices
