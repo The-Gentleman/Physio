@@ -11,9 +11,10 @@
 
   <body>
     <% if logged_in? %>
-    <%= link_to "Home Page", user_path(current_user) %>
-    <%= link_to "View Offices", offices_path %>
-    <%= link_to "Log Out", logout_path, method: :delete %>
+    <%= link_to "Your Page", user_path(current_user) %> |
+    <%= link_to "View Offices", offices_path %> |
+    <%= link_to "View Your Patients", patient_path(current_user.patients) %>  |
+    <%= link_to "Log Out", logout_path, method: :delete %> 
     <% else %>
       <%= link_to "Log In", login_path %><br></br>
       <%= link_to "Sign up", signup_path %><br></br></li>

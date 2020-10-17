@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   post 'signup' => "users#create"
 
   get '/auth/:provider/callback' => "sessions#google"
-  resources :exercises
   resources :patients
   resources :offices
   resources :users
