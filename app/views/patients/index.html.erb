@@ -1,6 +1,7 @@
+<h2>These are your patients in this city</h2>
 <% @patients.each do |patient| %>
 <ul>
    <br><li><%= link_to patient.name, patient_path(patient) %></li></br>
 </ul>
 <% end %>
-<%= link_to "Add a new patient here", new_patient_path %>
+<%= link_to "Add Patient", new_office_patient_path(current_user.offices.last.id) %>

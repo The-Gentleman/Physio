@@ -1,0 +1,6 @@
+<h3>Which state are you in?</h3>
+<%= form_for :office do |f| %>
+    <%= f.collection_select :state, Office.all, :state, :state %>
+    <br></br>
+    <%= f.submit "Submit" %>
+<% end %>

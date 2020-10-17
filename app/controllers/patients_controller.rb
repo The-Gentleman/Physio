@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-
+    before_action :current_users_office, only: [:new, :index]
     def new #needs to be nested
         if params[:office_id] && office = Office.find_by_id(params[:office_id])
             @patient = office.patients.build

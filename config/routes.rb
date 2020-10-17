@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :offices do 
     resources :patients, only: [:index, :new, :create]
   end 
+  get 'select' => "offices#select"
+  post 'select' => "offices#state_select"
+
   root "sessions#index"
   get 'login' => "sessions#new"
   post 'login' => "sessions#create"
