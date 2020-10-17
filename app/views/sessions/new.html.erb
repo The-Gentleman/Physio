@@ -1,6 +1,8 @@
 <div class="session-new-container">
     <h1>Log in</h1>
-
+    <% if flash[:message] %>
+        <%= flash[:message] %>
+    <% end %>
     <%= form_for :user do |f| %>
         <%= f.label :username %>
         <%= f.text_field :username, required: true %>

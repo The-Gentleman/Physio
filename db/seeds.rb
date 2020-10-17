@@ -1,7 +1,29 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+phil = User.create(username: "Dr. Phil", password: "pw", uid: "abc123")
+dre = User.create(username: "Dr. Dre", password: "pw", uid: "def456")
+mike = User.create(username: "Dr. Mike", password: "pw", uid:"ghi789")
+house = User.create(username: "Dr. House", password: "pw", uid:"jkl012")
+doom = User.create(username: "Dr. Doom", password: "pw", uid:"mno345")
+
+ny = Office.create(location: "New York")
+nj = Office.create(location: "New Jersey") 
+fl = Office.create(location: "Florida")
+tx = Office.create(location: "Texas")
+ca = Office.create(location: "California")
+
+vivian = Patient.create(name: "Vivian ", diagnosis: "sprained neck", user_id: phil.id, office_id: ny.id)
+hilary = Patient.create(name: "Hilary", diagnosis: "spoiled", user_id: dre.id, office_id: nj.id)
+jeffrey = Patient.create(name: "Jeffrey", diagnosis: "overworked", user_id: mike.id, office_id: fl.id)
+carlton = Patient.create(name: "Carlton", diagnosis: "vertically challenged", user_id: house.id, office_id: tx.id)
+ashley = Patient.create(name: "Ashley ", diagnosis: "youngest", user_id: doom.id, office_id: ca.id)
+ted = Patient.create(name: "Ted", diagnosis: "forever single", user_id: phil.id, office_id: ny.id)
+marshall = Patient.create(name: "Marshall", diagnosis: "tall", user_id: dre.id, office_id: nj.id)
+lily = Patient.create(name: "Lily", diagnosis: "spendthrifter", user_id: mike.id, office_id: fl.id)
+barney = Patient.create(name: "Barney", diagnosis: "womanizer", user_id: house.id, office_id: tx.id)
+robin = Patient.create(name: "Robin", diagnosis: "reporter", user_id: doom.id, office_id: ca.id)
+
+plank = Exercise.create(name: "Plank", reps: 10, patient_id: vivian.id)
+spider_man = Exercise.create(name: "Spider Man Stretch", reps: 20, patient_id: carlton.id)
+cross_hearts = Exercise.create(name: "Cross Hears", reps: 30, patient_id: ted.id)
+row = Exercise.create(name: "Rows", reps: 40, patient_id: barney.id) 
+pull_up = Exercise.create(name: "Pull Ups", reps: 50, patient_id: lily.id)
+

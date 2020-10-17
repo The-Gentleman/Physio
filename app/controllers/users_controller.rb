@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    
     def new 
         @user = User.new
     end 
@@ -17,8 +18,7 @@ class UsersController < ApplicationController
         @user = User.find_by(id: params[:id])
     end 
 
-    def logout 
-    end 
+
 
     private
     def user_params

@@ -1,0 +1,14 @@
+<div class="patient-new-container">
+
+    
+    <%= form_for(@patient) do |f| %>
+        <br>
+        <%= f.label :name %>:
+        <%= f.text_field :name %>
+        <br></br>
+        <%= f.label :diagnosis %>:
+        <%= f.text_field :diagnosis %><br>
+        <br></br>
+        <%= f.submit "Add Patient" %>
+    <% end %>
+</div>
