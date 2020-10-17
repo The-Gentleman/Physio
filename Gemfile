@@ -50,6 +50,7 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
+  gem 'rails-controller-testing'
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'rails-helper', '~> 0.1.0'
