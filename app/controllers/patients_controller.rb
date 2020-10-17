@@ -4,8 +4,17 @@ class PatientsController < ApplicationController
         @patient = Patient.new
     end 
 
-    # I want the user to be able to see the patients associated with them
-    def show 
+    def index 
         @patients = current_user.patients
+    end 
+
+    def show 
+        @patient = Patient.find_by(id: params[:id])
+    end 
+
+
+    private
+    def patient_params
+        params.require[:patient].permit(:name, :diagnosis, :exercise, :user_id, patient_id)
     end 
 end

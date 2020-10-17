@@ -10,7 +10,7 @@ fl = Office.create(location: "Florida")
 tx = Office.create(location: "Texas")
 ca = Office.create(location: "California")
 
-vivian = Patient.create(name: "Vivian ", diagnosis: "sprained neck", exercise: "Planks", user_id: phil.id, office_id: ny.id)
+vivian = Patient.create(name: "Vivian", diagnosis: "sprained neck", exercise: "Planks", user_id: phil.id, office_id: ny.id)
 hilary = Patient.create(name: "Hilary", diagnosis: "spoiled", exercise: "Spider Man Stretches", user_id: dre.id, office_id: nj.id)
 jeffrey = Patient.create(name: "Jeffrey", diagnosis: "overworked", exercise: "Cross Hearts", user_id: mike.id, office_id: fl.id)
 carlton = Patient.create(name: "Carlton", diagnosis: "vertically challenged", exercise: "Rows", user_id: house.id, office_id: tx.id)
