@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :offices do 
+    resources :patients, only: [:new, :create, :index]
+  end 
+
   root "sessions#index"
   get 'login' => "sessions#new"
   post 'login' => "sessions#create"
@@ -6,9 +10,8 @@ Rails.application.routes.draw do
   get 'signup' => "users#new"
   post 'signup' => "users#create"
 
+
   get '/auth/:provider/callback' => "sessions#google"
   resources :patients
-  resources :offices
   resources :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

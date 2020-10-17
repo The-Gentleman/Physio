@@ -1,10 +1,13 @@
 class PatientsController < ApplicationController
 
-    def new 
+    def new #nested
         @patient = Patient.new
     end 
-
-    def index 
+    
+    def create #nested
+    end 
+    
+    def index #nested
         @patients = current_user.patients
     end 
 
@@ -13,8 +16,9 @@ class PatientsController < ApplicationController
     end 
 
 
+
     private
     def patient_params
-        params.require[:patient].permit(:name, :diagnosis, :exercise, :user_id, patient_id)
+        params.require(:patient).permit(:name, :diagnosis, :exercise, :user_id)
     end 
 end
