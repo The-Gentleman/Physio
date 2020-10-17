@@ -1,9 +1,15 @@
 class PatientsController < ApplicationController
 
     def new #needs to be nested
+        if params[:office_id] && office = Office.find_by_id(params[:office_id])
+            @patient = office.patients.build
+        else 
+            @patient = Patient.new
+        end 
     end 
     
     def create #needs to be nested
+
     end 
     
     def index #needs to be nested
