@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   resources :offices do 
-    resources :patients, only: [:new, :create, :index]
+    resources :patients, only: [:index, :new, :create]
   end 
-
   root "sessions#index"
   get 'login' => "sessions#new"
   post 'login' => "sessions#create"
