@@ -9,7 +9,12 @@ class PatientsController < ApplicationController
     end 
     
     def create #needs to be nested
-
+        @patient = Patient.new(patient_params)
+        if @patient.save
+            redirect_to patient_path(@patient)
+        else 
+            render :new 
+        end 
     end 
     
     def index #needs to be nested
@@ -28,6 +33,6 @@ class PatientsController < ApplicationController
 
     private
     def patient_params
-        params.require(:patient).permit(:name, :diagnosis, :user_id, :office_id)
+        params.require(:patient).permit(:name, :diagnosis, :exercise, :user_id, :office_id)
     end 
 end
