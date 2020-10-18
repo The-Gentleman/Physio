@@ -4,4 +4,5 @@
    <br><li><%= link_to patient.name, patient_path(patient) %></li></br>
 </ul>
 <% end %>
-<%= link_to "Add Patient", new_office_patient_path(current_user.offices.last.id) %>
+
+<%= link_to "Add Patient", new_office_patient_path(@patients.map{|p|p.office_id}.uniq) %>

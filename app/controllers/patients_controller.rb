@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
-    before_action :current_users_office, only: [:new, :index]
-    def new #needs to be nested
+    
+    def new 
         if params[:office_id] && office = Office.find_by_id(params[:office_id])
             @patient = office.patients.build
         else 
@@ -8,7 +8,7 @@ class PatientsController < ApplicationController
         end 
     end 
     
-    def create #needs to be nested
+    def create 
         @patient = Patient.new(patient_params)
         if @patient.save
             redirect_to patient_path(@patient)
@@ -17,7 +17,7 @@ class PatientsController < ApplicationController
         end 
     end 
     
-    def index #needs to be nested
+    def index 
         if params[:office_id] && office = Office.find_by_id(params[:office_id])
             @patients = office.patients
         else 

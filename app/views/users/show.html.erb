@@ -1,6 +1,4 @@
 <div class="user-show-container">
     <h1>Welcome to your profile page,  <%= @user.username %>!</h1><br>
     <label>To begin, please click <%= link_to "here", select_path %> to select what state you are in.</label>
-    <br></br>
-    <label>If you do not yet have any patients, click <%= link_to "here", new_office_patient_path(current_user.offices.last.id) %>.</label>
 </div>
