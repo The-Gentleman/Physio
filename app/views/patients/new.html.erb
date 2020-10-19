@@ -1,4 +1,6 @@
-<div class="patient-new-container">    
+<div class="patient-new-container">   
+    <%= render partial: "layouts/errors", locals: {object: @patient} %>
+
     <%= form_for(@patient) do |f| %>
         <br>
         <%= f.label :name %>:

@@ -18,6 +18,7 @@ class PatientsController < ApplicationController
     end 
     
     def index 
+        binding.pry
         if params[:office_id] && office = Office.find_by_id(params[:office_id])
             @patients = office.patients
         else 
