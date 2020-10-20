@@ -3,9 +3,9 @@
 one:
   name: MyString
   reps: 1
-  patient: one
+  patients: one
 
 two:
   name: MyString
   reps: 1
-  patient: two
+  patients: two

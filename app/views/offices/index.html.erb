@@ -1,7 +1,0 @@
-<h1> Here are all the offices: </h1>
-
-<ul>
-<% @offices.all.each do |office| %>
-    <li><%= link_to office.state, office_path(office) %></li>
-<% end %>
-</ul>

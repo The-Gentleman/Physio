@@ -3,9 +3,8 @@ class CreatePatients < ActiveRecord::Migration[6.0]
     create_table :patients do |t|
       t.string :name
       t.string :diagnosis
-      t.string :exercise
-      t.belongs_to :user, null: false, foreign_key: true
-      t.belongs_to :office, null: false, foreign_key: true
+      t.integer :user_id
+      t.integer :office_id
 
       t.timestamps
     end

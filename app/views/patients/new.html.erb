@@ -1,19 +1,12 @@
-<div class="patient-new-container">   
-    <%= render partial: "layouts/errors", locals: {object: @patient} %>
-
-    <%= form_for(@patient) do |f| %>
-        <br>
-        <%= f.label :name %>:
-        <%= f.text_field :name, required: true %>
-        <br></br>
-        <%= f.label :diagnosis %>:
-        <%= f.text_field :diagnosis, required: true %><br>
-        <br></br>
-        <%= f.label :exercise %>:
-        <%= f.text_field :exercise, required: true %><br>
-        <br></br>
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-        <%= f.hidden_field :office_id, :value => @patient.office.id %>
-        <%= f.submit "Add Patient" %>
-    <% end %>
-</div>
+<br></br>
+<%= form_for(@patient, url: office_patients_path, method: (:post)) do |f| %>
+    <%= f.label :name %>:
+    <%= f.text_field :name, required: true %>
+    <br></br>
+    <%= f.label :diagnosis %>:
+    <%= f.text_field :diagnosis, required: true %><br>
+    <br></br>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :office_id, :value => @patient.office.id %>
+    <%= f.submit "Add Patient" %>
+<% end %>
