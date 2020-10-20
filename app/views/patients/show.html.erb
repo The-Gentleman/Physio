@@ -1,0 +1,16 @@
+<br></br>
+
+<h2>Patient Name: </h2>
+<%= @patient.name %>
+
+<h3>Patient Hometown: </h3>
+<%= @patient.office.city %>, <%= @patient.office.state %>
+
+<h4>Patient Diagnosis: </h4>
+<%= @patient.diagnosis %>
+
+<br></br>
+<%= link_to "Edit", edit_patient_path(@patient) %>
+
+<br></br>
+<%= link_to "Back", office_patients_path(@patient.office) %>

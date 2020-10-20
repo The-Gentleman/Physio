@@ -1,5 +1,10 @@
 class PatientsController < ApplicationController
     def index 
+        if params[:office_id] && office = Office.find_by_id(params[:office_id])
+            @patients = office.patients
+        else 
+            @patients = current_user.patients
+        end 
     end 
 
     def new 
@@ -12,12 +17,28 @@ class PatientsController < ApplicationController
 
     def create 
         @patient = Patient.new(patient_params)
-        # binding.pry
         if @patient.save
             redirect_to patient_path(@patient)
         else 
             render :new
         end 
+    end 
+
+    def show 
+        @patient = Patient.find_by(id: params[:id])
+    end 
+
+    def edit 
+        @patient = Patient.find_by(id: params[:id])
+    end 
+
+    def update
+        @patient = Patient.find_by(id: params[:id])
+        if @patient.update(patient_params)
+            redirect_to patient_path(@patient)
+        else
+            render :edit
+        end
     end 
 
     private
