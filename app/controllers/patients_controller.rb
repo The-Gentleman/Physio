@@ -41,6 +41,11 @@ class PatientsController < ApplicationController
         end
     end 
 
+    def destroy
+        Patient.find_by(id: params[:id]).delete
+        redirect_to office_patients_path(current_user.offices.last)
+    end 
+
     private
     def patient_params
         params.require(:patient).permit(:name, :diagnosis, :user_id, :office_id)
