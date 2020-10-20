@@ -1,3 +1,4 @@
+<%= render partial: "layouts/errors", locals: {object: @patient} %>
 <br></br>
 <%= form_for(@patient, url: office_patients_path, method: (:post)) do |f| %>
     <%= f.label :name %>:
