@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :offices, only: [:show]  do 
     resources :patients, only: [:index, :new, :create]
   end 
-  resources :patients, except: [:new, :create]
+  resources :patients, except: [:index, :new, :create]
   
   get 'select' => "offices#select"
   post 'select' => "offices#show"
