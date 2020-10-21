@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     end 
 
     def show 
-        @user = User.find_by(id: params[:id])
+        find_user
     end 
 
 
@@ -24,6 +24,10 @@ class UsersController < ApplicationController
     private
     def user_params
         params.require(:user).permit(:username, :password)
+    end 
+
+    def find_user
+        @user = User.find_by(id: params[:id]) unless current_user.id != params[:id].to_i
     end 
 
 end
