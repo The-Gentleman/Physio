@@ -42,8 +42,9 @@ class PatientsController < ApplicationController
     end 
 
     def destroy
-        Patient.find_by(id: params[:id]).delete
-        redirect_to office_patients_path(current_user.offices.last)
+        office_id = Patient.find(params[:id]).office.id
+        Patient.find(params[:id]).delete
+        redirect_to office_patients_path(office_id)
     end 
 
     private

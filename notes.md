@@ -12,7 +12,7 @@
 
 [x] You must include and make use of a nested resource with the appropriate RESTful URLs. You must include a nested new route with form that relates to the parent resource You must include a nested index or show route
 
-[] Your forms should correctly display validation errors. a. Your fields should be enclosed within a fields_with_errors class b. Error messages describing the validation failures must be present within the view.
+[x] Your forms should correctly display validation errors. a. Your fields should be enclosed within a fields_with_errors class b. Error messages describing the validation failures must be present within the view.
 
 [] Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app. Logic present in your controllers should be encapsulated as methods in your models. Your views should use helper methods and partials when appropriate. Follow patterns in the Rails Style Guide and the Ruby Style Guide.
 

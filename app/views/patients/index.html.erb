@@ -1,9 +1,18 @@
 <br></br>
-<h3>Your patients in <%= current_user.offices.last.city %>, <%= current_user.offices.last.state %>: </h3>
-    <ul>
-        <% @patients.all.each do |patient| %>
-           <li> <%= link_to patient.name, patient_path(patient) %><br></li>
-        <% end %> 
-    </ul>
+
+<% if !@patients.empty? %>
+    <h3>Your patients in <%= @patients.last.office.city %>, <%= @patients.last.office.state %>: </h3>
+        <ul>
+            <% @patients.all.each do |patient| %>
+               <li> <%= link_to patient.name, patient_path(patient) %><br></li>
+            <% end %> 
+        </ul>
+    <br></br>
+<% else %>
+    <label>You don't have any patients yet! Add one below.</label>
+<% end %>
+
 <br></br>
 <%= link_to "Add New Patient", new_office_patient_path %>
+<br></br>
+<%= link_to "Look Up A Different Location", select_path %>
