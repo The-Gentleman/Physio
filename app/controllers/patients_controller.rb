@@ -6,6 +6,7 @@ class PatientsController < ApplicationController
         else 
             @patients = current_user.patients
         end 
+        flash[:no_patients] = "You don't have any patients yet! Add one below."
     end 
 
     def new 
