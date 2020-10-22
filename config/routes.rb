@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   
   get 'select' => "offices#select"
   post 'select' => "offices#show"
-  # post 'select' => "patients#index"
   
    
   get 'login' => "sessions#new"

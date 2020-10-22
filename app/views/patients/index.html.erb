@@ -1,7 +1,7 @@
 <br></br>
 
 <% if !@patients.empty? %>
-    <h3>Your patients in <%= @patients.last.office.city %>, <%= @patients.last.office.state %>: </h3>
+    <h3>Your patients in <%= @office.city %>, <%= @office.state %>: </h3>
         <ul>
             <% @patients.all.each do |patient| %>
                <li> <%= link_to patient.name, patient_path(patient) %><br></li>
