@@ -1,18 +1,20 @@
-<br></br>
-
-<h3>Your patients in <%= @office.city %>, <%= @office.state %>. If you have none, just add some below. </h3>
-
-<% current_user.patients.each do |user_patient| %>
-    <% @patients.each do |patient| %>
-        <% if user_patient == patient %>
-            <ul>
-                <li><%= link_to patient.name, patient_path(patient) %><br></li>
-            </ul>
+<div class="patients-index-container">
+    <br></br>
+    
+    <h3>Your patients in <%= @office.city %>, <%= @office.state %>. If you have none, just add some below. </h3>
+    
+    <% current_user.patients.each do |user_patient| %>
+        <% @patients.each do |patient| %>
+            <% if user_patient == patient %>
+                <ul>
+                    <li><%= link_to patient.name, patient_path(patient) %><br></li>
+                </ul>
+            <% end %>
         <% end %>
     <% end %>
-<% end %>
-
-<br></br>
-<%= link_to "Add New Patient", new_office_patient_path %>
-<br></br>
-<%= link_to "Look Up A Different Location", select_path %>
+    
+    <br></br>
+    <%= link_to "Add New Patient", new_office_patient_path %>
+    <br></br>
+    <%= link_to "Look Up A Different Location", select_path %>
+</div>

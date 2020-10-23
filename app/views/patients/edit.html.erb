@@ -1,7 +1,9 @@
-<br></br>
-<h3>Edit Patient: </h3>
-<%= render partial: "layouts/errors", locals: {object: @patient} %>
-
-<%= form_for(@patient) do |f| %>
-    <%= render partial: 'form', locals: {f: f} %>
-<% end %>
+<div class="patients-edit-container">
+    <br></br>
+    <h3>Edit Patient: </h3>
+    <%= render partial: "layouts/errors", locals: {object: @patient} %>
+    
+    <%= form_for(@patient) do |f| %>
+        <%= render partial: 'form', locals: {f: f} %>
+    <% end %>
+</div>
