@@ -1,15 +1,16 @@
 <br></br>
 
-<% @patients.all.each do |patient| %>
-    <% if current_user.patients.include?(patient) %>
-        <h3>Your patients in <%= @office.city %>, <%= @office.state %>: </h3>
+<h3>Your patients in <%= @office.city %>, <%= @office.state %>. If you have none, just add some below. </h3>
+
+<% current_user.patients.each do |user_patient| %>
+    <% @patients.each do |patient| %>
+        <% if user_patient == patient %>
             <ul>
-                <li> <%= link_to patient.name, patient_path(patient) %><br></li>
+                <li><%= link_to patient.name, patient_path(patient) %><br></li>
             </ul>
-    <% else %>
-        <%= flash[:no_patient] if flash[:no_patient]  %>
+        <% end %>
     <% end %>
-<% end %> 
+<% end %>
 
 <br></br>
 <%= link_to "Add New Patient", new_office_patient_path %>

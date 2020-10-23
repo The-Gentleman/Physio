@@ -19,3 +19,11 @@
 
 -------------------------------------
 Issue is that the patient is tethered to offices due to nested routes. Maybe a solution is to create an Exercise model that has a belongs to relationship with patient, then nest exercise under patient. That ensures that I can log a user in, ask for a location, then create a patient and assign an exercise irrespective of the office. So an exercise URL would look something like patient/id/exercise, and since a user has a has many relationship with a patient, I can use current_user.patients.exercise
+
+
+<% @patients.all.each do |patient| %>
+    <% if current_user.patients.include?(patient) %>
+        <ul>
+            <li><% link_to patient.name, patient_path(patient) %><br></li>
+        </ul>
+<% end %> 
