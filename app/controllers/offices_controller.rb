@@ -3,7 +3,7 @@ class OfficesController < ApplicationController
     end 
     
     def index
-       @office = Office.all
+       @offices = Office.alpha
     end 
 
     def show 
