@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "sessions#index"
 
-  resources :offices, only: [:show]  do 
+  resources :offices, only: [:show, :index]  do 
     resources :patients, only: [:index, :new, :create]
   end 
   resources :patients, except: [:index, :new, :create]

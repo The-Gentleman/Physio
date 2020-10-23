@@ -1,6 +1,10 @@
 class OfficesController < ApplicationController
     def select
     end 
+    
+    def index
+       @office = Office.all
+    end 
 
     def show 
         @office = Office.find_by_state(params[:office][:state])
