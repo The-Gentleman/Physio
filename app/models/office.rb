@@ -7,7 +7,7 @@ class Office < ApplicationRecord
     # query the office table to find which office 
     # has the most patient ids
     # binding.pry
-   scope :most_frequented_office, -> {}
+   scope :most_frequented_office, -> {order(patient_id: :ASC).limit(2)}
    scope :alpha, -> {order 'offices.state ASC'}
-   
+
  end
