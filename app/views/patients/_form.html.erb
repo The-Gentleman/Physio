@@ -1,4 +1,3 @@
-<%= form_for(@patient) do |f| %>
     <%= f.label :name %>:
     <%= f.text_field :name, required: true %>
     <br></br>
@@ -6,6 +5,4 @@
     <%= f.text_field :diagnosis, required: true %><br>
     <br></br>
     <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.hidden_field :office_id, :value => @patient.office.id %>
     <%= f.submit "Edit Patient" %>
-<% end %>

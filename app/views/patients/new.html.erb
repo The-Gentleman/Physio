@@ -1,5 +1,6 @@
-<%= render partial: "layouts/errors", locals: {object: @patient} %>
 <br></br>
+<%= render partial: "layouts/errors", locals: {object: @patient} %>
+
 <%= form_for(@patient, url: office_patients_path, method: (:post)) do |f| %>
     <%= f.label :name %>:
     <%= f.text_field :name, required: true %>
@@ -9,5 +10,5 @@
     <br></br>
     <%= f.hidden_field :user_id, :value => current_user.id %>
     <%= f.hidden_field :office_id, :value => @patient.office.id %>
-    <%= f.submit "Add Patient" %>
+    <%= f.submit "Edit Patient" %>
 <% end %>

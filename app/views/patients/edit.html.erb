@@ -1,4 +1,8 @@
-<%= render partial: "layouts/errors", locals: {object: @patient} %>
 <br></br>
 <h3>Edit Patient: </h3>
-<%= render 'form' %>
+<%= render partial: "layouts/errors", locals: {object: @patient} %>
+
+<%= form_for(@patient) do |f| %>
+    <%= render partial: 'form', locals: {f: f} %>
+    <%= f.hidden_field :office_id, :value => @patient.office.id %>
+<% end %>
