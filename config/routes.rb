@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   end 
 
   resources :patients, except: [:index, :new, :create] do 
-    resources :exercises, only: [:show, :new, :create]
+    resources :exercises, only: [:index, :new, :create]
   end 
-  resources :exercises, except: [:show, :new, :create]
+  resources :exercises, except: [:index, :new, :create]
   
   get 'select' => "offices#select"
   post 'select' => "offices#show"

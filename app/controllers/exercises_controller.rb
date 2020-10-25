@@ -1,14 +1,15 @@
 class ExercisesController < ApplicationController
 
-    def index
-        @exercises = Exercise.all
+    def show 
+        @exercise = Exercise.find(params[:id])
     end 
 
-    def show 
+    def index 
         if params[:patient_id] && @patient = Patient.find_by_id(params[:patient_id])
-            @exercise = @patient.exercise
+            @exercises = @patient.exercise
+            binding.pry
         else 
-            render :new
+            @exercises = Exercise.all
         end 
     end 
 
