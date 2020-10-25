@@ -1,0 +1,14 @@
+<div class="exercise-index-title-container">
+    <h3>Assigned exercises for <%= @patient.name %></h3>
+</div>
+
+<div class="exercise-iteration-containter">
+    <% @exercises.each do |exercise| %>
+        
+        <label>Name: <%= exercise.name %><br>
+        <label>Reps: <%= exercise.reps %><br>
+        <br></br>
+    <% end %>
+    <br>
+    <%= link_to "Back To Patients Page", patient_path(@patient) %>
+</div>

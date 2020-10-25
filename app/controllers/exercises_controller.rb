@@ -7,13 +7,17 @@ class ExercisesController < ApplicationController
     def index 
         if params[:patient_id] && @patient = Patient.find_by_id(params[:patient_id])
             @exercises = @patient.exercise
-            binding.pry
         else 
             @exercises = Exercise.all
         end 
     end 
 
     def new 
+        if params[:patient_id] && @patient = Patient.find_by_id(params[:patient_id])
+            @exercise = @patient.exercise.build
+        else 
+            @exercise.new
+        end 
     end 
     
     def create 
