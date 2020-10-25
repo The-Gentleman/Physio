@@ -1,7 +1,17 @@
 <div class="office-show-container">
     <h3> This office is located in <%= @office.city %>. </h3>
     <h4>View your patients in this <%= link_to "city", office_patients_path(@office) %>.</h4>
-    <%= link_to "Back", select_path %>
+    <%= link_to "Look up a different location", select_path %>
+
+    <br></br>
+    <label>The three offices with the most patients are:</label>
+    <br>
+    <ol>
+        <% Office.most_frequented_office.each do |office| %>
+            <br>
+            <li><%= office.state %><br></li>
+        <% end %>
+    </ol>
  </div>
 
 
