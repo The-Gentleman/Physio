@@ -1,24 +1,18 @@
 class ExercisesController < ApplicationController
 
-    # def index
-    #     if params[:patient_id] && @patient = Patient.find_by_id(params[:patient_id])
-    #         @exercises = @patient.exercise
-    #     else 
-    #         @exercises = Exercise.all
-    #     end 
-    # end 
-
-    def all_exercises
+    def index
         @exercises = Exercise.all
     end 
 
+    def show 
+        if params[:patient_id] && @patient = Patient.find_by_id(params[:patient_id])
+            @exercise = @patient.exercise
+        else 
+            render :new
+        end 
+    end 
 
     def new 
-        # if params[:patient_id] && patient = Patient.find_by_id(params[:patient_id])
-        #     @exercise = patient.exercise.build
-        # else 
-        #     @exercise = Exercise.new
-        # end 
     end 
     
     def create 
