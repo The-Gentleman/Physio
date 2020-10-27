@@ -7,7 +7,11 @@
         
         <label>Name: <%= exercise.name %><br>
         <label>Reps: <%= exercise.reps %><br>
+        <%= link_to "Edit Current Exercises", edit_exercise_path(exercise) %>
+        <br>
+        <%= link_to "Delete Exercise", exercise_path(exercise), method: :delete %>
         <br></br>
+
     <% end %>
     <br>
     <%= link_to "Back To Patients Page", patient_path(@patient) %>
