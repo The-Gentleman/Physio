@@ -1,0 +1,12 @@
+<div class="exercises-new-form">
+
+    <%= form_for(@exercise, url: patient_exercises_path, method: (:post)) do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name, required: true %>
+        <br>
+        <%= f.label :reps %>
+        <%= f.number_field :reps, in: 1...51, required: true %>
+        <br>
+        <%= f.submit "Add Exercise" %>
+    <% end %>
+</div>

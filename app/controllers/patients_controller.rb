@@ -8,7 +8,7 @@ class PatientsController < ApplicationController
         end 
         flash[:no_patients] = "You don't have any patients yet! Add one below."
     end 
-
+    
     def new 
         if params[:office_id] && office = Office.find_by_id(params[:office_id])
             @patient = office.patients.build
@@ -16,7 +16,7 @@ class PatientsController < ApplicationController
             @patient = Patient.new
         end 
     end 
-
+    
     def create 
         @patient = Patient.new(patient_params)
         if @patient.save
