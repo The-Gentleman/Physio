@@ -1,0 +1,9 @@
+<%= f.label :name %>
+<%= f.text_field :name, required: true %>
+<br></br>
+<%= f.label :reps %>
+<%= f.number_field :reps, in: 1...51, required: true %>
+<%= f.hidden_field :patient_id, :value => @patient.id %>
+<br>
+<%= f.submit %>
+<br>

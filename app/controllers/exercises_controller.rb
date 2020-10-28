@@ -2,7 +2,6 @@ class ExercisesController < ApplicationController
 
     def all_exercises
         @exercises = Exercise.all
-        binding.pry
     end
 
     def index 
@@ -13,7 +12,6 @@ class ExercisesController < ApplicationController
             @exercises = Exercise.all
         end 
     end 
-
 
     def new 
         redirect_if_not_current_user
@@ -36,6 +34,7 @@ class ExercisesController < ApplicationController
     def edit 
         redirect_if_not_current_user
         @exercise = Exercise.find(params[:id])
+        @patient = @exercise.patient
     end 
 
     def update
@@ -61,7 +60,6 @@ class ExercisesController < ApplicationController
     end 
     
     def redirect_if_not_current_user
-        # I NEED TO FIGURE OUT A BETTER CHECK. IF I ENTER AN ID THAT DOESNT EXIST, IT THROWS AN ERROR
         if params[:patient_id]
             patient = Patient.find(params[:patient_id])
         elsif params[:patient_id] == nil 

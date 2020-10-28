@@ -2,8 +2,5 @@
     <% if @user %>
         <h1>Welcome to your profile page,  <%= @user.username %>!</h1><br>
         <label>To begin, please click <%= link_to "here", select_path %> to select what state you are in.</label>
-    <% else %>
-        <br></br>
-        <label>You aren't authorized to view this page.</label>
     <% end %>
 </div>

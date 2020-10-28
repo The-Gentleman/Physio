@@ -1,0 +1,7 @@
+<div class="all-exercises-containter">
+    <h2>This are exercises used by your colleagues: </h2>
+    <% @exercises.each do |e| %>
+        <label><%= e.name %></label>
+        <br>
+    <% end %>
+</div>
