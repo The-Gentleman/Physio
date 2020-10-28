@@ -4,7 +4,7 @@
     <%= link_to "Look up a different location", select_path %>
 
     <br></br>
-    <label>The three offices with the most patients are:</label>
+    <label>The office with the most patients are:</label>
     <br>
     <ol>
         <% Office.most_frequented_office.each do |office| %>
