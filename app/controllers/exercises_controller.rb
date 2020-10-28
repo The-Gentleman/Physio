@@ -1,5 +1,10 @@
 class ExercisesController < ApplicationController
 
+    def all_exercises
+        @exercises = Exercise.all
+        binding.pry
+    end
+
     def show 
         @exercise = Exercise.find(params[:id])
     end 
@@ -13,9 +18,6 @@ class ExercisesController < ApplicationController
         end 
     end 
 
-    def all_exercises
-        @exercises = Exercise.all
-    end
 
     def new 
         redirect_if_not_current_user
@@ -27,16 +29,12 @@ class ExercisesController < ApplicationController
     end 
     
     def create 
-        # I NEED TO FIGURE THIS OUT
-        # @exercise = Exercise.new(name: params[:exercise][:name], reps: params[:exercise][:reps], patient_id: params[:patient_id])
         @exercise = Exercise.new(exercise_params)
-        # @exercise.patient = Patient.find(params[:patient_id])
-        # @exercise.reps = params[:exercise][:reps].to_i
-        # if @exercise.save
-        #     redirect_to patient_path(patient)
-        #  else 
-        #     render :new
-        # end 
+        if @exercise.save
+            redirect_to patient_path(@exercise.patient)
+         else 
+            render :new
+        end 
     end 
 
     def edit 
@@ -46,9 +44,8 @@ class ExercisesController < ApplicationController
 
     def update
         @exercise = Exercise.find_by(id: params[:id])
-        patient = Patient.find(params[:patient_id])
         if @exercise.update(exercise_params)
-            redirect_to exercise_path(@exercise)
+            redirect_to patient_exercises_path(@exercise.patient)
         else
             render :edit 
         end 
@@ -71,7 +68,7 @@ class ExercisesController < ApplicationController
         # I NEED TO FIGURE OUT A BETTER CHECK. IF I ENTER AN ID THAT DOESNT EXIST, IT THROWS AN ERROR
         if params[:patient_id]
             patient = Patient.find(params[:patient_id])
-        elsif params[:patient_id] == nil
+        elsif params[:patient_id] == nil || !params[:patient_id].exists?
             patient = Exercise.find(params[:id]).patient
         end 
         redirect_to select_path if !current_user.patients.include?(patient)

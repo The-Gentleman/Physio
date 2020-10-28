@@ -1,5 +1,15 @@
 <div class="exercises-new-form">
+
     <%= form_for(@exercise, url: patient_exercises_path, method: (:post)) do |f| %>
-        <%= render partial: 'form', locals: {f: f} %>
+        <%#=render partial: 'form', locals: {f: f} %>
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true %>
+    <br></br>
+    <%= f.label :reps %>
+    <%= f.number_field :reps, in: 1...51, required: true %>
+    <%= f.hidden_field :patient_id, :value => @patient.id %>
+    <br>
+    <%= f.submit %>
+
     <% end %>
 </div>
