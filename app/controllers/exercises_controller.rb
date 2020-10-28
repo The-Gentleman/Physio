@@ -5,10 +5,6 @@ class ExercisesController < ApplicationController
         binding.pry
     end
 
-    def show 
-        @exercise = Exercise.find(params[:id])
-    end 
-
     def index 
         redirect_if_not_current_user
         if params[:patient_id] && @patient = Patient.find_by_id(params[:patient_id])
@@ -68,7 +64,7 @@ class ExercisesController < ApplicationController
         # I NEED TO FIGURE OUT A BETTER CHECK. IF I ENTER AN ID THAT DOESNT EXIST, IT THROWS AN ERROR
         if params[:patient_id]
             patient = Patient.find(params[:patient_id])
-        elsif params[:patient_id] == nil || !params[:patient_id].exists?
+        elsif params[:patient_id] == nil 
             patient = Exercise.find(params[:id]).patient
         end 
         redirect_to select_path if !current_user.patients.include?(patient)

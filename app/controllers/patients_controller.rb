@@ -59,6 +59,8 @@ class PatientsController < ApplicationController
         redirect_to office_patients_path(office_id)
     end 
 
+
+    
     private
     def patient_params
         params.require(:patient).permit(:name, :diagnosis, :user_id, :office_id)
