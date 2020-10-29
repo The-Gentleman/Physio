@@ -4,15 +4,14 @@ Rails.application.routes.draw do
   resources :offices, only: [:show]  do 
     resources :patients, only: [:index, :new, :create]
   end 
+  get 'select' => "offices#select"
+  post 'select' => "offices#show"
 
   resources :patients, except: [:index, :new, :create] do 
     resources :exercises, only: [:index, :new, :create]
   end 
-  resources :exercises, except: [:index, :new, :create]
-  get 'all_exercises' => "exercises#all_exercises"
 
-  get 'select' => "offices#select"
-  post 'select' => "offices#show"
+  resources :exercises, except: [:index, :new, :create]
    
   get 'login' => "sessions#new"
   post 'login' => "sessions#create"

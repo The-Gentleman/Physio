@@ -1,9 +1,5 @@
 class ExercisesController < ApplicationController
 
-    def all_exercises
-        @exercises = Exercise.all
-    end
-
     def index 
         redirect_if_not_current_user
         if params[:patient_id] && @patient = Patient.find_by_id(params[:patient_id])
@@ -52,7 +48,7 @@ class ExercisesController < ApplicationController
         redirect_to patient_exercises_path(patient)
     end 
     
-    
+
     
     private
     def exercise_params
