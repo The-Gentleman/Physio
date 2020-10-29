@@ -6,12 +6,10 @@
     <br></br>
     <label>The office with the most patients are:</label>
     <br>
-    <ol>
         <% Office.most_frequented_office.each do |office| %>
             <br>
-            <li><%= office.state %><br></li>
+            <p><%= office.state %><br></p>
         <% end %>
-    </ol>
  </div>
 
 

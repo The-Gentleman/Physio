@@ -17,7 +17,6 @@
          <ul class="nav navbar-nav navbar-left">
             <% if logged_in? %>
               <%= link_to "Your Page", user_path(current_user) %> |
-              <%= link_to "View All Exercises", all_exercises_path %> |
               <%= link_to "Log Out", logout_path, method: :delete %> 
             <% else %>
               <%= link_to "Log In", login_path %> |
