@@ -45,7 +45,7 @@ class PatientsController < ApplicationController
     end 
 
     def update
-        @patient = Patient.find_by(id: params[:id])
+        find_patient
         if @patient.update(patient_params)
             redirect_to patient_path(@patient)
         else
