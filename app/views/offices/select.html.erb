@@ -10,11 +10,3 @@
         <%= flash[:unauthorized] %>
     <% end %>
 
-    <h3>Search for a patient below</h3>
-
-    <%= form_tag("/select", method: 'get') do %>
-        <%= label_tag(:q, "Search for:") %>
-        <%= text_field_tag(:q) %>
-        <%= submit_tag("Search") %>
-    <% end %>
-</div>

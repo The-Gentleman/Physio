@@ -1,5 +1,12 @@
 class PatientsController < ApplicationController
 
+    def all_patients
+        binding.pry
+        if params[:q]
+            @patient_office = Patient.patient_search(params[:q.downcase])
+        end 
+    end 
+
     def index 
         if params[:office_id] && @office = Office.find_by_id(params[:office_id]) 
             @patients = @office.patients

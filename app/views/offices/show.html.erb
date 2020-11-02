@@ -3,6 +3,7 @@
     <h4>View your patients in this <%= link_to "city", office_patients_path(@office) %>.</h4>
     <%= link_to "Look up a different location", select_path %>
 
+
     <br></br>
     <label>The office with the most patients are:</label>
     <br>
@@ -10,6 +11,7 @@
             <br>
             <p><%= office.state %><br></p>
         <% end %>
+
  </div>
 
 
