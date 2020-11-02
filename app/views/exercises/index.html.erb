@@ -5,7 +5,7 @@
 <div class="exercise-iteration-containter">
     <% @exercises.each do |exercise| %>
         
-        <label>Name: <%= exercise.name %>.uniq<br>
+        <label>Name: <%= exercise.name %><br>
         <label>Reps: <%= exercise.reps %><br>
         <%= link_to "Edit Current Exercises", edit_exercise_path(exercise) %>
         <br>

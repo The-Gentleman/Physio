@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
   root "sessions#index"
+  get 'login' => "sessions#new"
+  post 'login' => "sessions#create"
+  delete 'logout' => "sessions#destroy"
+  get '/auth/:provider/callback' => "sessions#google"
 
   resources :offices, only: [:show]  do 
     resources :patients, only: [:index, :new, :create]
   end 
+
   get 'select' => "offices#select"
   post 'select' => "offices#show"
 
@@ -13,13 +18,9 @@ Rails.application.routes.draw do
 
   resources :exercises, except: [:index, :new, :create]
    
-  get 'login' => "sessions#new"
-  post 'login' => "sessions#create"
-  delete 'logout' => "sessions#destroy"
-  get '/auth/:provider/callback' => "sessions#google"
   
+  resources :users, only: [:new, :create, :show]
   get 'signup' => "users#new"
   post 'signup' => "users#create"
   
-  resources :users
 end

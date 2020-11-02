@@ -34,7 +34,8 @@ class PatientsController < ApplicationController
             redirect_to_select_path 
         end 
     end 
-
+    
+    # @patient = current_user.patients.find_by(id: params[:id])
     def edit 
         find_patient
         if @patient 

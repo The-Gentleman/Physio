@@ -27,7 +27,6 @@ class UsersController < ApplicationController
     end 
 
     def find_user
-        # @user = User.find_by(id: params[:id]) unless current_user.id != params[:id].to_i
         if current_user.id == params[:id].to_i
             @user = User.find_by(id: params[:id])
         else 

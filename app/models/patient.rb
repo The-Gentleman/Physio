@@ -4,4 +4,5 @@ class Patient < ApplicationRecord
   has_many :exercises
   validates :name, presence: true, uniqueness: true
   validates :diagnosis, presence: true
+
 end
