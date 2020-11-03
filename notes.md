@@ -21,3 +21,14 @@
 Issue is that the patient is tethered to offices due to nested routes. Maybe a solution is to create an Exercise model that has a belongs to relationship with patient, then nest exercise under patient. That ensures that I can log a user in, ask for a location, then create a patient and assign an exercise irrespective of the office. So an exercise URL would look something like patient/id/exercise, and since a user has a has many relationship with a patient, I can use current_user.patients.exercise
 
 
+-------------------------------------
+NOTES ON SEARCH FUNCTION
+In order to implement the search function, I did the following:
+1- Added a new route
+2- Added a new link in my nav bar
+3- Wrote a new scope method in my patients controller
+4- Added a new action in my patients controller, where I checked if the search query exists in the params,
+to create an instance variable using the scope method.
+5- In the appropriate view, I ran a check for the patient, iterated through the instance variable, checked
+if that patient belonged to the current user, and if all the conditons were met, it returned the office the patient 
+belonged to.
