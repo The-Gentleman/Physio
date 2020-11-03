@@ -8,10 +8,10 @@ class Patient < ApplicationRecord
   scope :patient_search, -> (patient) { where("LOWER(name) = ?", patient)}
 
   # def self.patient_search(patient)
-  #   where("LOWER(name) = ?", patient) 
+  #     where("LOWER(name) = ?", patient) 
   # end 
-  # binding.pry
-  # Patient.find(Patient.patient_search("Robert").map{|patient| patient.id})
+
+
   # search feature where user can a patient, they can get the office location.
 
   # to create a search fucntion, creat form tag[x]

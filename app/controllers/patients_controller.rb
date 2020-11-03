@@ -1,10 +1,8 @@
 class PatientsController < ApplicationController
 
     def search
-        if !params[:q].empty?
+        if params[:q] 
             @patient = Patient.patient_search(params[:q.downcase])
-        else
-            flash[:no_value] = "You need to enter something to search!"
         end 
     end 
 
