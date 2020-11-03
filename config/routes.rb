@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   resources :offices, only: [:show]  do 
     resources :patients, only: [:index, :new, :create]
   end 
-  get 'all_patients' => "patients#all_patients"
+  
+  get 'search' => "patients#search"
+  post 'search' => "patients#search"
+
   get 'select' => "offices#select"
   post 'select' => "offices#show"
 

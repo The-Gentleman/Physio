@@ -1,9 +1,10 @@
 class PatientsController < ApplicationController
 
-    def all_patients
-        binding.pry
+    def search
         if params[:q]
-            @patient_office = Patient.patient_search(params[:q.downcase])
+            @patient = Patient.patient_search(params[:q.downcase])
+        elsif !params[:q]
+            flash[:no_patient] = "That patient does not exist!"
         end 
     end 
 

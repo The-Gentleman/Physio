@@ -17,7 +17,7 @@
          <ul class="nav navbar-nav navbar-left">
             <% if logged_in? %>
               <%= link_to "Your Page", user_path(current_user) %> |
-              <%= link_to "Look up a patient", all_patients_path %> |
+              <%= link_to "Patient lookup", search_path %> |
               <%= link_to "Log Out", logout_path, method: :delete %> 
             <% else %>
               <%= link_to "Log In", login_path %> |
