@@ -11,7 +11,7 @@
     <% if @patient  %>
         <% @patient.each do |patient| %>
             <% if current_user.patients.include?(patient) %>
-                <%=  patient.office.city %>, <%= patient.office.state %>
+                <label><%= patient.name %> is located in <%=  patient.office.city %>, <%= patient.office.state %></label>.
             <% end %>
         <% end %>
     <% end %>

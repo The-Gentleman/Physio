@@ -5,11 +5,11 @@ class Patient < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :diagnosis, presence: true
 
-  scope :patient_search, -> (patient) { where("LOWER(name) = ?", patient)}
+  # scope :patient_search, -> (patient) { where("LOWER(name) = ?", patient)}
 
-  # def self.patient_search(patient)
-  #     where("LOWER(name) = ?", patient) 
-  # end 
+  def self.patient_search(patient)
+      where("LOWER(name) = ?", patient) 
+  end 
 
 
   # search feature where user can a patient, they can get the office location.

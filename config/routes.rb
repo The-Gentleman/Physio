@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end 
   
   get 'search' => "patients#search"
-  post 'search' => "patients#search"
+  # post 'search' => "patients#search"
 
   get 'select' => "offices#select"
   post 'select' => "offices#show"

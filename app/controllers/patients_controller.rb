@@ -2,7 +2,7 @@ class PatientsController < ApplicationController
 
     def search
         if params[:q] 
-            @patient = Patient.patient_search(params[:q.downcase])
+            @patient = Patient.patient_search(params[:q].downcase || params[:q].upcase)
         end 
     end 
 
