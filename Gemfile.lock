@@ -278,6 +278,7 @@ DEPENDENCIES
   faker (~> 2.14)
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  nokogiri (~> 1.10.10)
   omniauth
   omniauth-google-oauth2
   pry (~> 0.13.1)
